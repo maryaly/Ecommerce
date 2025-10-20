@@ -25,8 +25,8 @@
     font-size: 20px;
     color: #252525;
     flex-wrap: wrap;
-  justify-content: center;
-  text-align: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .footer-links li {
@@ -37,7 +37,7 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-  justify-content: center;
+    justify-content: center;
 }
 
 .footer-icons-container {
@@ -58,7 +58,7 @@
     font-size: 20px;
 }
 
-.footer-copyright hr{
+.footer-copyright hr {
     width: 80%;
     border: none;
     border-radius: 10px;
@@ -67,64 +67,77 @@
 }
 
 @media (max-width: 1024px) {
-  .footer-logo p {
-    font-size: 40px;
-  }
-  .footer-links {
-    gap: 40px;
-    font-size: 18px;
-  }
-  .footer-social-icon {
-    gap: 16px;
-  }
+    .footer-logo p {
+        font-size: 40px;
+    }
+
+    .footer-links {
+        gap: 40px;
+        font-size: 18px;
+    }
+
+    .footer-social-icon {
+        gap: 16px;
+    }
 }
 
 @media (max-width: 800px) {
-  .footer {
-    gap: 40px;
-  }
-  .footer-logo img {
-    width: 60px;
-  }
-  .footer-logo p {
-    font-size: 32px;
-  }
-  .footer-links {
-    gap: 30px;
-    font-size: 16px;
-  }
-  .footer-icons-container img {
-    width: 22px;
-  }
-  .footer-copyright p {
-    font-size: 16px;
-  }
+    .footer {
+        gap: 40px;
+    }
+
+    .footer-logo img {
+        width: 60px;
+    }
+
+    .footer-logo p {
+        font-size: 32px;
+    }
+
+    .footer-links {
+        gap: 30px;
+        font-size: 16px;
+    }
+
+    .footer-icons-container img {
+        width: 22px;
+    }
+
+    .footer-copyright p {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 600px) {
-  .footer {
-    gap: 30px;
-  }
-  .footer-logo {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .footer-logo p {
-    font-size: 28px;
-  }
-  .footer-links {
-    flex-direction: column;
-    gap: 15px;
-    font-size: 16px;
-  }
-  .footer-social-icon {
-    flex-direction: row;
-    gap: 12px;
-  }
-  .footer-icons-container {
-    padding: 8px;
-  }
-  .footer-copyright p {
-    font-size: 14px;
-  }
+    .footer {
+        gap: 30px;
+    }
+
+    .footer-logo {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-logo p {
+        font-size: 28px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+        font-size: 16px;
+    }
+
+    .footer-social-icon {
+        flex-direction: row;
+        gap: 12px;
+    }
+
+    .footer-icons-container {
+        padding: 8px;
+    }
+
+    .footer-copyright p {
+        font-size: 14px;
+    }
 }
