@@ -107,3 +107,151 @@
     color: white;
     cursor: pointer;
 }
+
+@media (max-width: 1150px) {
+  .cartitems {
+    margin: 80px 100px;
+  }
+
+  .cartitems-format-main {
+    gap: 40px;
+    font-size: 16px;
+  }
+
+  .cartitems-down {
+    gap: 20px;
+  }
+
+  .cartitems-total button {
+    width: 220px;
+    height: 50px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .cartitems {
+    margin: 60px 50px;
+  }
+
+  .cartitems-format-main {
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+    gap: 25px;
+    font-size: 15px;
+  }
+
+  .carticon-product-icon {
+    height: 60px;
+  }
+
+  .cartitems-quantity {
+    width: 50px;
+    height: 40px;
+  }
+
+  .cartitems-down {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cartitems-total {
+    margin-right: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cartitems-promocode {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cartitems-promobox {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 750px) {
+.cartitems {
+    margin: 50px 40px;
+  }
+
+  .cartitems-format-main {
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+    gap: 20px;
+    font-size: 13px;
+  }
+
+  .carticon-product-icon {
+    height: 58px;
+  }
+
+  .cartitems-quantity {
+    width: 40px;
+    height: 30px;
+  }
+
+  .cartitems-down {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cartitems-total {
+    margin-right: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cartitems-promocode {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cartitems-promobox {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+.cartitems {
+    margin: 40px 30px;
+  }
+
+  .cartitems-format-main {
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+    gap: 15px;
+    font-size: 12px;
+  }
+
+  .carticon-product-icon {
+    height: 56px;
+  }
+
+  .cartitems-quantity {
+    width: 30px;
+    height: 20px;
+  }
+
+  .cartitems-down {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cartitems-total {
+    margin-right: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cartitems-promocode {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cartitems-promobox {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
