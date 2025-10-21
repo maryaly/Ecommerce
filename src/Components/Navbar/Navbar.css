@@ -238,7 +238,8 @@
         align-items: center;
     }
 
-    .nav-menu {
+    .nav-menu,
+    .nav-login-cart .login-btn {
         display: none;
     }
 
@@ -264,12 +265,8 @@
         width: 14px;
         height: 14px;
         font-size: 10px;
-        margin-top: -20px;
+        margin-top: -16px;
         margin-left: -48px;
-    }
-
-    .nav-login-cart {
-        gap: 40px;
     }
 
     .nav-login-cart img {
@@ -278,7 +275,7 @@
 }
 
 @media (max-width: 600px) {
- .navbar {
+    .navbar {
         grid-template-columns: 1.5fr 2fr 0.5fr;
     }
 }

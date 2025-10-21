@@ -63,16 +63,6 @@
     font-weight: 600;
 }
 
-.loginsignup-agree {
-    display: flex;
-    align-items: center;
-    margin-top: 25px;
-    gap: 20px;
-    color: #5c5c5c;
-    font-size: 18px;
-    font-weight: 500;
-}
-
 
 @media (max-width: 1024px) {
   .loginsignup-container {
@@ -114,11 +104,6 @@
     height: 60px;
     font-size: 18px;
   }
-
-  .loginsignup-agree {
-    font-size: 16px;
-    gap: 15px;
-  }
 }
 
 @media (max-width: 600px) {
@@ -143,13 +128,6 @@
   .loginsignup-container button {
     height: 50px;
     font-size: 16px;
-  }
-
-  .loginsignup-agree {
-    font-size: 14px;
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
   }
 
   .loginsignup-login {

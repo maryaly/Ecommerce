@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef, useState, useEffect } from 'react'
 import './Navbar.css'
 import logo from '../Assets/logo.png'
 import cart_icon from '../Assets/cart_icon.png'
@@ -11,7 +11,25 @@ const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const { getTotalCartItems } = useContext(ShopContext)
 
+  const drawerRef = useRef(null)
+
   const toggleDrawer = () => setDrawerOpen(!drawerOpen)
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (drawerRef.current && !drawerRef.current.contains(event.target)) {
+        setDrawerOpen(false)
+      }
+    }
+    if (drawerOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [drawerOpen])
 
   return (
     <div className='navbar'>
@@ -26,7 +44,7 @@ const Navbar = () => {
         <li onClick={() => { setMenu("kids") }}><Link style={{ textDecoration: 'none' }} to={'/kids'}>Kids</Link>{menu === "kids" ? <hr /> : <></>}</li>
       </ul>
       <div className="nav-login-cart">
-        <Link to={'/login'}><button onClick={() => { setDrawerOpen(false) }}>Login</button></Link>
+        <Link to={'/login'} className='login-btn'><button onClick={() => { setDrawerOpen(false) }}>Login</button></Link>
         <Link to={'/cart'}><img src={cart_icon} alt="" onClick={() => { setDrawerOpen(false) }} /></Link>
         <div className="nav-cart-count">{getTotalCartItems()}</div>
       </div>
