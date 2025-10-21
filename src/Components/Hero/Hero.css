@@ -68,18 +68,16 @@
 
 @media (max-width: 1024px) {
     .hero {
-        padding: 0 100px;
-        margin-bottom: 80px;
+        padding: 0 80px;
+        height: 70vh;
     }
 
     .hero-left h2 {
-        font-size: 22px;
-        font-weight: 500;
+        font-size: 24px;
     }
 
     .hero-left p {
-        font-size: 30px;
-        font-weight: 600;
+        font-size: 36px;
     }
 
     .hero-hand-icon img {
@@ -89,9 +87,7 @@
     .hero-latest-btn {
         width: 280px;
         height: 60px;
-        margin-top: 20px;
         font-size: 20px;
-        font-weight: 400;
     }
 
     .hero-right img {
@@ -100,13 +96,63 @@
 }
 
 @media (max-width: 800px) {
+    .hero {
+        flex-direction: column;
+        padding: 0 40px;
+        height: auto;
+        margin-bottom: 60px;
+    }
+
+    .hero-left {
+        align-items: center;
+        text-align: center;
+        padding: 40px 0;
+    }
 
     .hero-left h2 {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .hero-left p {
-        font-size: 24px;
+        font-size: 32px;
+    }
+
+    .hero-hand-icon {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero-hand-icon img {
+        width: 75px;
+    }
+
+    .hero-latest-btn {
+        width: 240px;
+        height: 55px;
+        font-size: 18px;
+    }
+
+    .hero-right {
+        margin-top: 20px;
+    }
+
+    .hero-right img {
+        max-width: 350px;
+        height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-left h2 {
+        font-size: 18px;
+    }
+
+    .hero-left p {
+        font-size: 26px;
+    }
+
+    .hero-hand-icon {
+        gap: 10px;
     }
 
     .hero-hand-icon img {
@@ -115,46 +161,12 @@
 
     .hero-latest-btn {
         width: 200px;
-        height: 60px;
-        font-size: 14px;
-        font-weight: 400;
-    }
-
-    .hero-latest-btn img {
-        width: 24px;
+        height: 50px;
+        font-size: 16px;
     }
 
     .hero-right img {
-        max-width: 350px;
-    }
-}
-
-@media (max-width: 600px) {
-    .hero {
-        padding: 0 60px;
-        margin-bottom: 60px;
-    }
-
-    .hero-left h2 {
-        font-size: 18px;
-    }
-
-    .hero-left p {
-        font-size: 20px;
-    }
-
-    .hero-hand-icon img {
-        width: 50px;
-    }
-
-    .hero-latest-btn {
-        width: 160px;
-        height: 50px;
-        font-size: 12px;
-    }
-
-
-    .hero-latest-btn img {
-        width: 20px;
+        max-width: 250px;
+        height: auto;
     }
 }
