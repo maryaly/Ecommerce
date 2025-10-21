@@ -77,7 +77,10 @@
     font-weight: 500;
     background: white;
     cursor: pointer;
+}
 
+.login-btn {
+  text-decoration: none;
 }
 
 .nav-login-cart button:active {
