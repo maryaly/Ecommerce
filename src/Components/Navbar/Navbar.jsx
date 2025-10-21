@@ -7,8 +7,11 @@ import { ShopContext } from '../../Context/ShopContext'
 
 const Navbar = () => {
 
-  const [menu, setMenu] = useState("shop");
-  const {getTotalCartItems} = useContext(ShopContext);
+  const [menu, setMenu] = useState("shop")
+  const [drawerOpen, setDrawerOpen] = useState(false)
+  const { getTotalCartItems } = useContext(ShopContext)
+
+  const toggleDrawer = () => setDrawerOpen(!drawerOpen)
 
   return (
     <div className='navbar'>
@@ -23,10 +26,35 @@ const Navbar = () => {
         <li onClick={() => { setMenu("kids") }}><Link style={{ textDecoration: 'none' }} to={'/kids'}>Kids</Link>{menu === "kids" ? <hr /> : <></>}</li>
       </ul>
       <div className="nav-login-cart">
-        <Link to={'/login'}><button onClick={() => { setMenu("") }}>Login</button></Link>
-        <Link to={'/cart'}><img src={cart_icon} alt="" onClick={() => { setMenu("") }}/></Link>
+        <Link to={'/login'}><button onClick={() => { setDrawerOpen(false) }}>Login</button></Link>
+        <Link to={'/cart'}><img src={cart_icon} alt="" onClick={() => { setDrawerOpen(false) }} /></Link>
         <div className="nav-cart-count">{getTotalCartItems()}</div>
       </div>
+      {/* Hamburger icon */}
+      <div className="hamburger" onClick={toggleDrawer}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      {/* Drawer menu */}
+      <ul className={`drawer ${drawerOpen ? "show" : ""}`}>
+        <div className="drawer-close" onClick={toggleDrawer}>×</div>
+        <li onClick={() => { setMenu("shop"); setDrawerOpen(false) }}>
+          <Link to={'/'}>Shop</Link>
+        </li>
+        <li onClick={() => { setMenu("men"); setDrawerOpen(false) }}>
+          <Link to={'/men'}>Men</Link>
+        </li>
+        <li onClick={() => { setMenu("women"); setDrawerOpen(false) }}>
+          <Link to={'/women'}>Women</Link>
+        </li>
+        <li onClick={() => { setMenu("kids"); setDrawerOpen(false) }}>
+          <Link to={'/kids'}>Kids</Link>
+        </li>
+        <li onClick={() => { setDrawerOpen(false) }}>
+          <Link to={'/login'}>Login</Link>
+        </li>
+      </ul>
     </div>
   )
 }
