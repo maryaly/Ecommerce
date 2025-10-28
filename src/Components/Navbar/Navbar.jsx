@@ -4,6 +4,7 @@ import logo from '../Assets/logo.png'
 import cart_icon from '../Assets/cart_icon.png'
 import { Link } from 'react-router-dom'
 import { ShopContext } from '../../Context/ShopContext'
+import { logout } from '../../Firebase.js'
 
 const Navbar = () => {
 
@@ -44,7 +45,11 @@ const Navbar = () => {
         <li onClick={() => { setMenu("kids") }}><Link style={{ textDecoration: 'none' }} to={'/kids'}>Kids</Link>{menu === "kids" ? <hr /> : <></>}</li>
       </ul>
       <div className="nav-login-cart">
-        <Link to={'/login'} className='login-btn'><button onClick={() => { setDrawerOpen(false) }}>Login</button></Link>
+        <Link to={'/login'} className='login-btn'><button onClick={() => {
+          logout()
+          setDrawerOpen(false)
+        }}
+        >Logout</button></Link>
         <Link to={'/cart'}><img src={cart_icon} alt="" onClick={() => { setDrawerOpen(false) }} /></Link>
         <div className="nav-cart-count">{getTotalCartItems()}</div>
       </div>
@@ -69,8 +74,11 @@ const Navbar = () => {
         <li onClick={() => { setMenu("kids"); setDrawerOpen(false) }}>
           <Link to={'/kids'}>Kids</Link>
         </li>
-        <li onClick={() => { setDrawerOpen(false) }}>
-          <Link to={'/login'}>Login</Link>
+        <li onClick={() => {
+          logout()
+          setDrawerOpen(false)
+        }}>
+          <Link to={'/login'}>Logout</Link>
         </li>
       </ul>
     </div>
