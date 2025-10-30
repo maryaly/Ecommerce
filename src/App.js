@@ -52,9 +52,7 @@ function App() {
         <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={<LoginSignup />} />
       </Routes>
-
-      {/* Hide footer on login page */}
-      {!isLoginPage && <Footer />}
+<Footer/>
 
       <ToastContainer />
     </div>
