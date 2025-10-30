@@ -46,8 +46,11 @@ const Navbar = () => {
       </ul>
       <div className="nav-login-cart">
         <Link to={'/login'} className='login-btn'><button onClick={() => {
-          logout()
-          setDrawerOpen(false)
+          const confirmed = window.confirm("Are you sure you want to log out?");
+          if (confirmed) {
+            logout()
+            setDrawerOpen(false)
+          }
         }}
         >Logout</button></Link>
         <Link to={'/cart'}><img src={cart_icon} alt="" onClick={() => { setDrawerOpen(false) }} /></Link>
@@ -75,8 +78,11 @@ const Navbar = () => {
           <Link to={'/kids'}>Kids</Link>
         </li>
         <li onClick={() => {
-          logout()
-          setDrawerOpen(false)
+          const confirmed = window.confirm("Are you sure you want to log out?");
+          if (confirmed) {
+            logout()
+            setDrawerOpen(false)
+          }
         }}>
           <Link to={'/login'}>Logout</Link>
         </li>
