@@ -10,7 +10,6 @@ import {
     collection,
     getFirestore
 } from "firebase/firestore";
-import { toast } from "react-toastify";
 const firebaseConfig = {
     apiKey: "AIzaSyCZBcJyYBNBTW9Oqh0w96gP99o2CgXdMzQ",
     authDomain: "e-commerce-8de91.firebaseapp.com",
@@ -36,7 +35,8 @@ const signup = async (name, email, password) => {
         })
     } catch (error) {
         console.log(error)
-        toast.error(error.code.split('/')[1].split('-').join(" "))
+        const code = error?.code?.split("/")[1] || "signup-failed";
+        throw { code };
     }
 }
 
@@ -48,7 +48,8 @@ const login = async (email, password) => {
 
         } catch (error) {
             console.log(error)
-            toast.error(error.code.split('/')[1].split('-').join(" "))
+            const code = error?.code?.split("/")[1] || "login-failed";
+            throw { code };
         }
     }
 }

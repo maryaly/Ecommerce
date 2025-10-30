@@ -4,6 +4,14 @@ import { login, signup } from '../Firebase'
 import { showToast } from '../utils/toast'
 import { isValidEmail } from '../utils/validators'
 
+const firebaseErrorMessages = {
+  "email-already-in-use": "Email already in use ⚠️",
+  "user-not-found": "No account found with this email ⚠️",
+  "wrong-password": "Incorrect password ⚠️",
+  "invalid-email": "Invalid email address ⚠️",
+  "weak-password": "Password should be at least 6 characters ⚠️"
+};
+
 const LoginSignup = () => {
 
   const [signState, setSignState] = useState("Sign In")
@@ -33,7 +41,7 @@ const LoginSignup = () => {
       return
     } else if (!isValidEmail(email)) {
       setEmailError(true);
-      showToast("Please enter a valid email address ⚠️", "error");
+      showToast("Please enter a valid email address ⚠️", "warning");
       valid = false
       setTimeout(() => setEmailError(false), 3000);
       return
@@ -54,10 +62,37 @@ const LoginSignup = () => {
     event.preventDefault();
     if (!validateInputs()) return
 
-    if (signState === "Sign In") {
-      await login(email, password)
-    } else {
-      await signup(name, email, password)
+    try {
+      if (signState === "Sign In") {
+        await login(email, password)
+      } else {
+        await signup(name, email, password)
+      }
+    } catch (firebaseError) {
+      const friendlyMessage = firebaseErrorMessages[firebaseError.code] || "Something went wrong ❗";
+
+      // Map errors to fields
+      switch (firebaseError.code) {
+        case "user-not-found":
+        case "invalid-email":
+        case "email-already-in-use":
+          setEmailError(true);
+          break;
+        case "wrong-password":
+        case "weak-password":
+          setPasswordError(true);
+          break;
+        default:
+          setNameError(signState === "Sign Up");
+      }
+
+      showToast(friendlyMessage, "warning");
+      setTimeout(() => {
+        setNameError(false);
+        setEmailError(false);
+        setPasswordError(false);
+      }, 3000);
+
     }
   }
 
