@@ -52,8 +52,7 @@ function App() {
         <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={<LoginSignup />} />
       </Routes>
-<Footer/>
-
+      <Footer />
       <ToastContainer />
     </div>
   );
