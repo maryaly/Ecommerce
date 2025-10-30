@@ -1,6 +1,6 @@
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import Shop from './Pages/Shop';
 import ShopCategory from './Pages/ShopCategory';
 import Product from './Pages/Product';
@@ -19,6 +19,7 @@ import { auth } from './Firebase';
 function App() {
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
@@ -30,11 +31,16 @@ function App() {
         navigate('/login');
       }
     })
-  }, [])
+  }, [navigate]);
+
+  const isLoginPage = location.pathname === '/login';
 
   return (
     <div className="App">
-      <Navbar />
+
+      {/* Hide navbar on login page */}
+      {!isLoginPage && <Navbar />}
+
       <Routes>
         <Route path='/' element={<Shop />} />
         <Route path='/men' element={<ShopCategory banner={men_banner} category="men" />} />
@@ -46,7 +52,10 @@ function App() {
         <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={<LoginSignup />} />
       </Routes>
-      <Footer />
+
+      {/* Hide footer on login page */}
+      {!isLoginPage && <Footer />}
+
       <ToastContainer />
     </div>
   );
