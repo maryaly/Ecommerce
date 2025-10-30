@@ -106,7 +106,6 @@ const LoginSignup = () => {
           </div>
           <button onClick={async (e) => {
             await user_auth(e)
-            validateInputs()
           }} type='submit'>{signState}</button>
         </form>
         <div className="form-switch">
