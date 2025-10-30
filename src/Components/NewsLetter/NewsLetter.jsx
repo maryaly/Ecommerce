@@ -1,37 +1,29 @@
 import React, { useState } from 'react'
 import './NewsLetter.css'
-import "toastify-js/src/toastify.css";
-import Toastify from 'toastify-js';
+import { isValidEmail } from '../../utils/validators';
+import { showToast } from '../../utils/toast';
 
 const NewsLetter = () => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [error, setError] = useState(false);
 
   const handleSubscribe = () => {
     if (!email.trim()) {
       setError(true);
-      Toastify({
-        text: "Please enter your email address ❗",
-        backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc371)",
-        duration: 3000,
-        gravity: "top",
-        position: "center"
-      }).showToast();
+      showToast("Please enter your email address ❗", "error")
+      setTimeout(() => setError(false), 3000);
+      return;
+    }
 
-      // remove red border after 3 seconds
+    if (!isValidEmail(email)) {
+      setError(true);
+      showToast("Please enter a valid email address ⚠️", "error");
       setTimeout(() => setError(false), 3000);
       return;
     }
 
     setError(false);
-    Toastify({
-      text: "Subscribed successfully 🎉",
-      backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
-      duration: 3000,
-      gravity: "top",
-      position: "center",
-    }).showToast();
-
+    showToast("Subscribed successfully 🎉", "success");
     setEmail('');
   };
 
@@ -44,7 +36,12 @@ const NewsLetter = () => {
           type="email"
           placeholder='Your Email id'
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value)
+            if (error) {
+              setError(false)
+            }
+          }}
         />
         <button onClick={handleSubscribe}>Subscribe</button>
       </div>
