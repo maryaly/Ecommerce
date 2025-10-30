@@ -22,15 +22,17 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    onAuthStateChanged(auth, async (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         console.log("logged In")
-        navigate('/');
+        //navigate('/');
       } else {
         console.log("logged Out")
         navigate('/login');
       }
-    })
+    });
+
+    return() => unsubscribe();
   }, [navigate]);
 
   const isLoginPage = location.pathname === '/login';
