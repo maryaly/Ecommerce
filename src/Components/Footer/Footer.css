@@ -47,6 +47,11 @@
     padding-bottom: 6px;
     background: #fbfbfb;
     border: 1px solid #ebebeb;
+    cursor: pointer;
+}
+
+.footer-icons-container:hover{
+    background: #f3f3f3;
 }
 
 .footer-copyright {

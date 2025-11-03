@@ -59,7 +59,7 @@ const ProductDisplay = (props) => {
                 </div>
                 <button
                     onClick={() => { addToCart(product.id) }}
-                    disabled={!selectedSize}>{selectedSize ? "ADD TO CART" : "SELECT SIZE TO ADD"}</button>
+                    disabled={!selectedSize}>ADD TO CART</button>
                 <p className='productdisplay-right-category'><span>Category :</span>Women , T-Shirt, Crop Top</p>
                 <p className='productdisplay-right-category'><span>Tags :</span>Modern , Latest</p>
             </div>

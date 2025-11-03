@@ -83,7 +83,7 @@
   text-decoration: none;
 }
 
-.nav-login-cart button:active {
+.nav-login-cart button:hover{
     background: #f3f3f3;
 }
 

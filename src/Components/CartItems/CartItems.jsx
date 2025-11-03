@@ -62,7 +62,9 @@ const CartItems = () => {
                             <h3>${getTotalCartAmount()}</h3>
                         </div>
                     </div>
-                    <button onClick={() => { handleProceedToCheckout() }}>PROCEED TO CHECKOUT</button>
+                    <button
+                        onClick={() => { handleProceedToCheckout() }}
+                        disabled={getTotalCartAmount() === 0}>PROCEED TO CHECKOUT</button>
                 </div>
                 <div className="cartitems-promocode">
                     <p>If you have a promo code, Enter it here</p>

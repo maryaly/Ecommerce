@@ -72,6 +72,12 @@
     cursor: pointer;
 }
 
+.cartitems-total button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    color: #666;
+}
+
 .cartitems-promocode {
     flex: 1;
     font-size: 16px;
