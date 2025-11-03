@@ -161,11 +161,13 @@
         display: grid;
         grid-template-columns: 1fr;
         margin-right: 0;
+        margin-bottom: 20px;
         align-items: center;
         text-align: center;
     }
 
     .cartitems-total button {
+        width: 100%;
         margin: 0 auto;
         display: block;
     }
@@ -177,7 +179,7 @@
     }
 
     .cartitems-promobox {
-        width: 80%;
+        width: 100%;
         margin: 0 auto;
     }
 }
@@ -216,10 +218,6 @@
         text-align: center;
     }
 
-    .cartitems-promobox {
-        width: 70%;
-        margin: 0 auto;
-    }
 }
 
 @media (max-width: 600px) {
@@ -251,8 +249,4 @@
         text-align: center;
     }
 
-    .cartitems-promobox {
-        width: 60%;
-        margin: 0 auto;
-    }
 }
