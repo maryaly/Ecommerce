@@ -93,6 +93,21 @@
     border: 1px solid #ebebeb;
     border-radius: 3px;
     cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.productdisplay-right-sizes div:hover {
+    background: #f3f3f3;
+}
+
+.productdisplay-right-sizes div:active {
+    background: #f3f3f3;
+}
+
+.productdisplay-right-sizes div.selected {
+    background: #ff4141;
+    color: white;
+    border-color: #ff4141;
 }
 
 .productdisplay-right button {
@@ -106,6 +121,12 @@
     border: none;
     outline: none;
     cursor: pointer;
+}
+
+.productdisplay-right button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    color: #666;
 }
 
 .productdisplay-right-category {
