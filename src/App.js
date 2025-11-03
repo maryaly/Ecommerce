@@ -25,15 +25,19 @@ function App() {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         console.log("logged In")
-        //navigate('/');
+        if (location.pathname === '/login') {
+          navigate('/');
+        }
       } else {
         console.log("logged Out")
-        navigate('/login');
+        if (location.pathname !== '/login') {
+          navigate('/login');
+        }
       }
     });
 
-    return() => unsubscribe();
-  }, [navigate]);
+    return () => unsubscribe();
+  }, [navigate, location.pathname]);
 
   const isLoginPage = location.pathname === '/login';
 

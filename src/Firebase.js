@@ -44,13 +44,9 @@ const login = async (email, password) => {
     try {
         await signInWithEmailAndPassword(auth, email, password)
     } catch (error) {
-        try {
-
-        } catch (error) {
-            console.log(error)
-            const code = error?.code?.split("/")[1] || "login-failed";
-            throw { code };
-        }
+        console.log(error)
+        const code = error?.code?.split("/")[1] || "login-failed";
+        throw { code };
     }
 }
 
