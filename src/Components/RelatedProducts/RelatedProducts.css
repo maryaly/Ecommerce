@@ -24,3 +24,41 @@
     display: flex;
     gap: 30px;
 }
+
+/* ====== Responsive Styles ====== */
+@media (max-width: 1024px) {
+  .relatedproducts h1 {
+    font-size: 40px;
+  }
+
+  .relatedproducts-item {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  .relatedproducts {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .relatedproducts h1 {
+    font-size: 32px;
+  }
+
+  .relatedproducts-item {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .relatedproducts h1 {
+    font-size: 26px;
+  }
+
+  .relatedproducts-item {
+    gap: 15px;
+  }
+}
