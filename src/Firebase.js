@@ -36,7 +36,7 @@ const signup = async (name, email, password) => {
     } catch (error) {
         console.log(error)
         const code = error?.code?.split("/")[1] || "signup-failed";
-        throw { code };
+        throw new Error(code);
     }
 }
 
@@ -46,7 +46,7 @@ const login = async (email, password) => {
     } catch (error) {
         console.log(error)
         const code = error?.code?.split("/")[1] || "login-failed";
-        throw { code };
+        throw new Error(code);
     }
 }
 
